@@ -1,5 +1,6 @@
 // Importing necessary functionalities from the Hardhat package.
 import { ethers } from 'hardhat'
+import "dotenv/config";
 
 async function main() {
     // Retrieve the first signer, typically the default account in Hardhat, to use as the deployer.
@@ -7,14 +8,11 @@ async function main() {
     console.log('Contract is deploying by...', deployer.address)
 
     // Define parameters for the OFTWithFee contract
-    const name = "Bromer";
-    const symbol = "BROM";
-    // const name = "WoofWork.io";
-    // const symbol = "WOOF";
+    const name = process.env.NAME?process.env.NAME:"";
+    const symbol = process.env.SYMBOL?process.env.SYMBOL:"";
+    
     const sharedDecimals = 8; 
-    // const lzEndpoint = "0x6EDCE65403992e310A62460808c4b910D972f10f";    // LayerZero endpoint for Base testnet
-    const lzEndpoint = "0xb6319cC6c8c27A8F5dAF0dD3DF91EA35C4720dd7"; // LayerZero endpoint for Base prod (lz v1)
-    // const lzEndpoint = "0x1a44076050125825900e736c501f859c50fE728c"; // LayerZero endpoint for Base prod (lz v2)
+    const lzEndpoint = process.env.LZ_ENDPOINT_BASE?process.env.LZ_ENDPOINT_BASE:""; // LayerZero endpoint 
 
     // Deploy the OFTWithFee contract
     const OFTWithFee = await ethers.getContractFactory('OFTWithFee');

@@ -20,10 +20,6 @@ const config: HardhatUserConfig = {
     },
   },
   networks: {
-    // sepolia: {
-    //   url: `https://sepolia.infura.io/v3/${infuraKey}`,
-    //   accounts: [privateKey],
-    // },
     mainnet: {
       // url: `https://mainnet.infura.io/v3/${infuraKey}`,
       url: `https://eth-mainnet.g.alchemy.com/v2/${PROJECT_ID}`,
