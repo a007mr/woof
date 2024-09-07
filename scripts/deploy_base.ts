@@ -13,6 +13,7 @@ async function main() {
     
     const sharedDecimals = 8; 
     const lzEndpoint = process.env.LZ_ENDPOINT_BASE?process.env.LZ_ENDPOINT_BASE:""; // LayerZero endpoint 
+    console.log('===== lzEndpoint', lzEndpoint)
 
     // Deploy the OFTWithFee contract
     const OFTWithFee = await ethers.getContractFactory('OFTWithFee');

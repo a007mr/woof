@@ -8,9 +8,11 @@ async function main() {
     console.log('Contract is deploying by...',  deployer.address)
     
     const TokenAddress = process.env.TOKEN_ADDRESS?process.env.TOKEN_ADDRESS:"";
+    console.log('===== TokenAddress', TokenAddress)
 
     const instanceBridge = await ethers.getContractFactory('ProxyOFTWithFee');
     const lzEndpoint = process.env.LZ_ENDPOINT_ETH?process.env.LZ_ENDPOINT_ETH:""; // LayerZero endpoint 
+    console.log('===== lzEndpoint', lzEndpoint)
 
     const BridgeContract = await instanceBridge.deploy(TokenAddress, 8, lzEndpoint); 
 
